@@ -31,6 +31,24 @@ ${renderLicenseBadge(data.license)}
 - [License](#license)
 - [Contribution](#contribution)
 - [Test](#test)
+
+## Description
+${data.description}
+
+## Installation
+${data.installation}
+
+## Usage
+${data.usage}
+
+## Credit
+${data.credit}
+
+## Contribution
+${data.contribution}
+
+## Test
+${data.test}
 `;
 }
 
