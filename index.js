@@ -123,10 +123,27 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//function writeToFile(fileName, data) {}
+const writeToFile = (data) =>
+    new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', data, (err) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: console.log('You have completed. Your README file has been generated!'),
+            })
+        })
+    })
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => inquirer.prompt(questions)
 
 // Function call to initialize app
-init();
+init()
+    .then((readmeData) => generateMarkdown(readmeData))
+    .then((dataReceived) => writeToFile(dataReceived))
+    .catch((err) => console.log(err));
+
