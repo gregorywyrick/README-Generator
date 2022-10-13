@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
-// TODO: Create an array of questions for user input (title, github username, email, description, installation, usage, credit, contributors, tests )
+// TODO: Create an array of questions for user input (title, github username, email, description, installation, usage, credit, licenses, contributors, tests )
 const questions = [
     {
         type: 'input',
@@ -48,10 +48,78 @@ const questions = [
             if (descriptResponse) {
                 return true;
             }
-            console.log('Please enter a breif description!');
+            console.log('Please enter a breif description of your project');
+            return false;
+        }
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'How will the user go about installing the project/application?',
+        validate: (installResponse) => {
+            if (installResponse) {
+                return true;
+            }
+            console.log('Please describe how to install the project, if n/a please type n/a');
+            return false;
+        }
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Once installed, how will the user use the project? Please decribe the usage process.',
+        validate: (usageResponse) => {
+            if (usageResponse) {
+                return true;
+            }
+            console.log('We dont want them staring at a blank screen!! How will the user use your project?');
+            return false;
+        }
+    },
+    {
+        type: 'input',
+        name: 'credit',
+        message: 'Who can we give credit to for this project?',
+        validate: (creditResponse) => {
+            if (creditResponse) {
+                return true;
+            }
+            console.log('Please enter whom to give credit to. If this was a solo project, please enter your name.');
+            return false;
+        }
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which license is being used for this project? If none are used, please choose no license.',
+        choices: ['MIT', 'Boost Software', 'Apache', 'no license'],
+
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'Please explain how others can contribute to this project.',
+        validate: (contributeResponse) => {
+            if (contributeResponse) {
+                return true;
+            }
+            console.log('Please enter a title for your project, it can be whatever you want!');
+            return false;
+        }
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'How will this project be tested?',
+        validate: (testResponse) => {
+            if (testResponse) {
+                return true;
+            }
+            console.log('Please provide instructions on how to test this project.');
             return false;
         }
     }
+    
 ];
 
 // TODO: Create a function to write README file
