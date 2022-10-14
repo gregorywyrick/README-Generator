@@ -14,6 +14,8 @@ To install this project, first clone this repository on your local computer, the
 
 Please follow the link to see a video demo of the project at work!
 
+https://youtu.be/VnvfVyfUj9E
+
 ## Usage
 
 In order to use this project once you have followed the proper installation, the user simply inputs "node index.js" in the terminal, while inside the cloned project directory.
