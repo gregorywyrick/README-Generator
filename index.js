@@ -42,7 +42,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'desciption',
+        name: 'description',
         message: 'Please describe your project following normal SOP (what, why, how)?',
         validate: (descriptResponse) => {
             if (descriptResponse) {
